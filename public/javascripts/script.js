@@ -7,7 +7,7 @@ formularoio.addEventListener('submit', function(event) {
   const operacion = document.querySelector('select[name="operacion"]').value;
   switch (operacion) {
     case 'sumar':
-      resultadoDiv.textContent = `Resultado: ${num1 + num2}`;
+      resultadoDiv.textContent = `Resultado: ${num1 + num2 + 1}`;
         break;
     case 'restar':
       resultadoDiv.textContent = `Resultado: ${num1 - num2}`;
