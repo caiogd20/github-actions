@@ -6,8 +6,22 @@
 </head>
 
 <body>
-  <h1>Express</h1>
-  <p>Welcome to Express</p>
+  <h1>calculadora</h1>
+  <form id="formulario">
+    <input type="number" name="num1" placeholder="Número 1" required>
+    <input type="number" name="num2" placeholder="Número 2" required>
+    <select name="operacion">
+      <option value="sumar">Sumar</option>
+      <option value="restar">Restar</option>
+      <option value="multiplicar">Multiplicar</option>
+      <option value="dividir">Dividir</option>
+      <option value="potencia">Potencia</option>
+      <option value="raiz">Raíz</option>
+    </select>
+    <button type="submit">Calcular</button>
+    <div id="resultado"></div>
+  </form>
+  <script type="module" src="./javascripts/script.js"></script>
 </body>
 
 </html>

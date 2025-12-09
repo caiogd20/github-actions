@@ -13,11 +13,40 @@ describe('public/index.html', () => {
     container = document.body;
   });
 
-  test('exibe heading com texto "Express"', () => {
-    expect(getByText(container, 'Express')).toBeInTheDocument();
-  });
+    it('deve exibir o título "calculadora"', () => {
+      expect(getByText(container, 'calculadora')).toBeInTheDocument();
+    });
 
-  test('exibe parágrafo de boas-vindas', () => {
-    expect(getByText(container, 'Welcome to Express')).toBeInTheDocument();
-  });
+    it('deve conter um formulário com dois inputs numéricos', () => {
+      const inputs = container.querySelectorAll('input[type="number"]');
+      expect(inputs.length).toBe(2);
+      expect(inputs[0].name).toBe('num1');
+      expect(inputs[1].name).toBe('num2');
+    });
+
+    it('deve conter um select com operações', () => {
+      const select = container.querySelector('select[name="operacion"]');
+      expect(select).toBeInTheDocument();
+      const options = Array.from(select.options).map(opt => opt.value);
+      expect(options).toEqual([
+        'sumar',
+        'restar',
+        'multiplicar',
+        'dividir',
+        'potencia',
+        'raiz'
+      ]);
+    });
+
+    it('deve conter um botão de calcular', () => {
+      const button = container.querySelector('button[type="submit"]');
+      expect(button).toBeInTheDocument();
+      expect(button.textContent).toBe('Calcular');
+    });
+
+    it('deve conter um div para resultado', () => {
+      const resultadoDiv = container.querySelector('#resultado');
+      expect(resultadoDiv).toBeInTheDocument();
+    });
+  
 });
